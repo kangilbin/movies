@@ -2,6 +2,7 @@ import axios from "axios";
 
 const TMDB_KEY="154d88b6b5816f24fd5dcbb5af5916f8";
 
+const makeRequest = (path, params) =>
 axios.get(`https://api.themoviedb.org/3${path}`, {
     params: {   
         ...params,            
@@ -34,3 +35,5 @@ export const tvApi = {
     search: (word) => getAnything("/search/tv",{query}),
     show: (id) => getAnything(`/tv/${tv_id}`)
 }
+
+export const apiImage = (path) => `https://image.tmdb.org/t/p/w500/${path}`;
